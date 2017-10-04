@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>var _ = {
+            map: function(array, callback) {
+             for (let i = 0; i < array.length; i++) {
+               array[i] = callback(array[i]);
+             }
+           },
+           reduce: function(array, callback, context){
+               let x = 0;
+               if (!context){
+                 context = array[0];
+                 x = 1;
+               }
+               for (let i = x; i < array.length; i++) {
+                 context = callback(array[i], context);
+               }
+               return context;
+         
+           },
+             find: function(array, callback) {
+             for (let i = 0; i < array.length; i++) {
+               if (callback(array[i])){
+                 return array[i];
+               }
+             }
+           },
+            filter: function(array, callback) {
+             const tempArray = [];
+             for (let i = 0; i < array.length; i++) {
+               if (callback(array[i])) {
+                 tempArray.push(array[i]);
+               }
+             }
+             return tempArray;
+           },
+           reject: function(array, callback) {
+             const tempArray = [];
+             for (let i = 0; i < array.length; i++) {
+               if (!callback(array[i])) {
+                 tempArray.push(array[i]);
+               }
+             }
+             return tempArray;
+           },
+         }
+         // you just created a library with 5 methods!
+         
+         
+        </script>
+    
+</body>
+</html>
